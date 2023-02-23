@@ -1,0 +1,774 @@
+#NUMPY
+
+
+import numpy as np
+
+A=np.arange(6) #crea un array de 0 a 5- de 6 numeros
+
+A.reshape(3,2)  #cambiamos la forma de array a 3 filas 2 columnas 
+
+
+#algo asi tambien hace lo mismo np.reshape(a, (2, 3))
+
+np.reshape(A, (3,-1))       # el -1 juega como 2 
+
+
+B = np.array([[1,2,3], [4,5,6]])  # CEAMOS UN ARRAY 
+c=np.reshape(B, 6)    #lo convierte en un array de 1,1
+
+
+list(c)
+                    #Son lo mismo
+c
+
+
+c.mean()
+c.max()
+
+
+np.ndarray(A)   #info de un array
+
+np.ndarray(shape=(2,2), dtype=float, order='F')# random 
+
+
+np.ndarray((2,), buffer=np.array([1,2,3]),   #Used to fill the array with data
+           offset=np.int_().itemsize,
+           dtype=int) # offset = 1*itemsize, i.e. skip first element
+
+
+np.int_(4)
+
+#That also means the following two are equivalent:
+
+X=np.array([[1,2,3],[0,0,0]], dtype=int) #O , ASTYPE(INT)
+np.array([1,2,3], dtype=np.int_)
+X.reshape(1,-1) 
+
+#para cambiar dimensiones es directamene reshape
+
+np.int_(10)
+
+np.array([1,2,3], dtype=int) 
+
+A=[1,1,1,3,3,3,2,2,2]
+len(A)
+
+
+#convertir en array
+
+np.array(A)
+
+V=np.arange(9)
+
+V=V.reshape(3,3)
+#enfilas seria V[0]
+V
+
+#PANDAS
+
+
+##DEF  calculations(MIN,MAX,ETC...
+-
+
+np.array([9,8,7,6,5,4,3,5,3]).reshape(3,3)
+
+
+x=np.array([9,8,7,6,5,4,3,5,3]).reshape(3,3)
+
+fila1=x[0]
+fila2=x[1]
+fila3=x[2]
+
+columna1=x[:,0]   #traeme 0 de la fila y uno de la columna
+columna2=x[:,1]
+columna3=x[:,2]
+
+
+calculations.updates({'mean :' [[columna1.mean(), columna2.mean(),columna3.mean()],  [fila1.mean(),fila2.mean(),fila3.mean()], x.mean()]})
+calculations.updates({'variance :' [[columna1.var() ,Columna2.var(), Columna3.var()], [fila1.var(),fila2.var(),fila3.var()], x.var()]})
+calculations.updates({'standard deviation:'[[columna1.std(),columna2.std(),columna3.std()],[fila1.std(),fila2.std(), fila3.std()],x.std()]})
+calculations.updates({'max :'  [[columna1.max(),columna2.max(),columna3.max()],[fila1.max(),fila2.max(),fila3.max()],x.max()]})
+calculations.updates({ 'sum :' [[columna1.sum(),columna2.sum(),columna3.sum()],[fila1.sum(),fila2.sum(),fila3.sum()],x.sum()]})
+calculations.updates({'min :'  [[columna1.min(),columna2.min(),columna3.min()],[fila1.min(),fila2.min(),fila3.min()],x.min() ]})
+
+import numpy as np
+def calculate(V):
+    if len(V) <9:                        #SI EL LARGO ES MAS CHICO QUE NUEVE, TIRALE ESTE ERROR 
+        raise ValueError('List must contain nine numbers.')
+    else:
+        calculations = {'mean' : '', 'variance' : '', 'standard deviation' : '', 'max' : '', 'min' : '', 'sum' : ''}  #CREAMOS DICCIONARIO PARA OUTPUT
+
+        x=np.array([V]).reshape(3,3) #ALMACENAMOS CADA DIMENCION EN STORAGE    #NO PUDE HACER RESHAPE, xq no tengo una variable fija de llamada "V", es un ejemplo unicamente para cualquier valor 
+                  #total array
+        fila1=x[0]
+        fila2=x[1]
+        fila3=x[2]
+
+        columna1=x[:,0]   #traeme 0 de la fila y uno de la columna
+        columna2=x[:,1]
+        columna3=x[:,2]
+
+
+        # #llenar el output
+        
+        calculations.update({'mean' :[[columna1.mean(), columna2.mean(),columna3.mean()],  [fila1.mean(),fila2.mean(),fila3.mean()], x.mean()]})
+        calculations.update({'variance' :[[columna1.var() ,columna2.var(), columna3.var()], [fila1.var(),fila2.var(),fila3.var()], x.var()]})
+        calculations.update({'standard deviation':[[columna1.std(),columna2.std(),columna3.std()],[fila1.std(),fila2.std(), fila3.std()],x.std()]})
+        calculations.update({'max' : [[columna1.max(),columna2.max(),columna3.max()],[fila1.max(),fila2.max(),fila3.max()],x.max()]})
+        calculations.update({'min' : [[columna1.min(),columna2.min(),columna3.min()],[fila1.min(),fila2.min(),fila3.min()],x.min() ]})
+        calculations.update({'sum': [[columna1.sum(),columna2.sum(),columna3.sum()],[fila1.sum(),fila2.sum(),fila3.sum()],x.sum()]})
+
+
+    return calculations
+
+
+
+
+calculate([2,6,2,8,4,0,1,5,7])
+
+https://replit.com/@RochiiRamos/boilerplate-mean-variance-standard-deviation-calculator-1#mean_var_std.py
+
+ V=np.arange(9)
+
+
+              #lo mismo que un reshape 
+storage = np.array([V[0:3], V[3:6], V[6:9]])
+#un array a lista  A
+#cualquier cosa a list ~ variable=['hola','como estas']
+storage
+
+#para que nos de el total de todo el array
+
+storage.mean()
+storage.max()
+storage.min()
+storage.var()
+storage.sum()
+storage.std()
+
+
+
+# en las filas
+v1=storage[0].sum()
+v2=storage[1].sum()
+
+
+#seeccionar columnas 
+storage[:, 0]
+
+matrix = np.array(([11, 12, 13], [21, 22, 23], [31, 32, 33]))
+matrix
+
+matrix[:, 0]
+
+#diccionarios 
+
+d = {1: "one", 2: "three"}
+d1 = {2: "two"}
+
+# updates the value of key 2
+d.update(d1)
+
+print(d)
+
+d1 = {3: "three"}
+
+# adds element with key 3
+d.update(d1)
+
+print(d)
+
+##DEMOGRAPHIC
+
+
+###Libreria y data set
+
+
+import pandas as pd
+df=pd.read_csv('/content/drive/MyDrive/adult.data.csv')
+
+###How many of each race are represented in this dataset?
+
+race_count=df['race'].value_counts()
+race_count
+
+##avg age male 
+
+sexandage=df[df['sex']=='Male'][['age','sex']].mean()
+sexandage
+
+
+# sexandage=df[['age','sex']]
+# sexandage
+sex_male=sexandage[sexandage['sex']=='Male']
+sex_male['age'].mean()
+
+## What is the percentage of people who have a Bachelor's degree?
+
+
+
+counts_Educacion=df['education'].value_counts() #no tiene header , como lo llamas?
+df_counts_Educacion=pd.DataFrame(counts_Educacion)  #cuando lo convertis en df, se le pone el nombre a la columna
+
+suma_total=df_counts_Educacion['education'].sum()
+df_counts_Educacion  #estaba bachelors y eso como index, no los podes sumar ni ndad
+df_counts_Educacion.reset_index(inplace=True)
+
+bachelors=df_counts_Educacion[df_counts_Educacion['index']=='Bachelors']
+suma_bachelors=bachelors.sum()
+suma_bachelors=suma_bachelors.reset_index(drop=True)
+suma_bachelors.squeeze() #convertirlo en una serie
+suma_bachelors.drop(suma_bachelors.index[0], inplace=True) # borrar la primera fila   #inplace=True modifica el dataframe original
+
+suma_bachelors=suma_bachelors.reset_index(drop=True, inplace=False)
+
+print((suma_bachelors/suma_total)*100)
+
+
+counts_Educacion   #no se puede filtrar una serie 
+
+x_counts_Educacion= pd.DataFrame(counts_Educacion) #si o si esas mayusculas en data frame 
+x_counts_Educacion.reset_index(inplace=True)  #Estaba tomando bachelors, master como index, por eso lo reseteamos 
+x_counts_Educacion.columns #vemos que esta tomando como headers
+df_1=x_counts_Educacion.rename({'index':'Type'}, axis=1) #le agregamos nombre a la columna #muy importante el axis, te dice donde bscar 1 =columna, 0 =fila(por default)
+elevated_education=df_1[(df_1['Type']=="Bachelors") |(df_1['Type']== "Masters") | (df_1['Type']=="Doctorate")]  #ATENCION CON EL PARENTESIS DE CONDICIONES MULTIPLES 
+
+
+
+
+  # What is the percentage of people who have a Bachelor's degree?
+percentage_bachelors = round(
+        100 * df.loc[df["education"] == "Bachelors"].size / df.size,   #filas
+        1,
+    )
+
+#loc es por condicion y iloc por iteracion 
+
+# round((
+    
+df.loc[df['education']=='Bachelors'].size
+       
+       
+       
+      #  /df.size)*100,1)  #cuenta los campos que solo cumplen con esa condicion en la columna selecionada 
+
+
+# df['education'].value_counts()['Bachelors'] # 5355   
+
+
+###Loc Iloc
+
+
+juan = empleados.loc[empleados['Nombre'] == 'Juan'] # es un fultro en las filas que cumplan la condicion 
+ #El método loc se puede usar de dos formas diferentes: seleccionar filas o columnas en base a una etiqueta o seleccionar filas o columnas en base a una condición.
+
+#iloc es siemore con iteraciones de indice 
+is_male = df.loc[:, 'sex'] == 'Male'
+df_male = df.loc[is_male]
+ value = student_df.loc[:, ["Name", "Age"]] # que traigan toda la columna
+is_male
+
+ student_df.loc[504, "Grade"] # le estamos dando la pocision 504 y la columna grade
+
+
+              #SON LO MISMO
+
+# p=df.loc[:,'sex']=='Male' ## si o si para hacer una funcion xq me devuelve booleanos 
+
+A=df.loc[(df['sex']=='Male')& (df['age'] ==39)] #ahora si es un filtro
+
+
+
+
+
+###Sorting
+
+df.sort_values('age',ascending=False,inplace=True)
+df.set_index('age')
+
+
+######filtrar con iloc-- aka posicion iteracion,   [[filas],[columas]]    TAMBIEN RANGOS [1:4, 0:2]
+
+filtered_values = student_df.iloc[[1, 2, 3], [0, 3]]
+
+#higher_education_rich %
+
+
+Salary_Education=df[['salary','education']]
+
+
+elevated_education=Salary_Education[(Salary_Education['education']=="Bachelors") |(Salary_Education['education']== "Masters") | (Salary_Education['education']=="Doctorate")] 
+
+
+edu_salary=elevated_education[elevated_education['salary']=='>50K']
+
+cant_edu_salary=edu_salary.value_counts()
+
+only_elevated_education=elevated_education.drop('salary',axis=1)
+
+only_elevated_education.sum()  #no se puede sumar un string
+
+cunt_education=only_elevated_education.value_counts()
+
+pd.DataFrame(cunt_education)
+
+DF_4=cunt_education.reset_index()
+all_advance_education=DF_4[0].sum()
+
+cant_edu_salary=edu_salary.value_counts()
+
+salarios_elevados=pd.DataFrame(cant_edu_salary)
+salarios_elevados #me estaba tomando como index le education
+
+salarios_elevados.reset_index(inplace=True)
+
+salarios_elevados.drop(['salary','education'], axis=1, inplace=True) #corchetes al usar mas de una columna o  df.drop(columns=["salary", "education"], inplace=True)
+
+suma_salarios_elevados=salarios_elevados.sum()
+
+serie_suma_salarios_elevados=suma_salarios_elevados.squeeze()
+all_advance_education
+
+print((serie_suma_salarios_elevados/all_advance_education)*100)
+
+
+
+###What percentage of people without advanced education make more than 50K?
+
+
+df_edu_sal=df[['education','salary']]
+
+notadv_edu=df_edu_sal[(df_edu_sal['education']!= 'Bachelors')&(df_edu_sal['education']!='Masters') & (df_edu_sal['education']!='Doctorate')]
+suma_notadv_edu=notadv_edu['education'].value_counts()   #una serie
+total_noeduadv=suma_notadv_edu.sum()
+
+notadv_edu[notadv_edu['salary']=='>50K'] #no lo puedo sumar porque son un str
+
+
+not_adv_edu_50k=notadv_edu[notadv_edu['salary']=='>50K'].value_counts()
+
+total_50k=not_adv_edu_50k.sum()
+
+percentage=(total_50k/total_noeduadv)*100
+
+percentage
+
+
+####What is the minimum number of hours a person works per week?
+
+
+df['hours-per-week'].min()
+
+####What percentage of the people who work the minimum number of hours per week have a salary of >50K?
+
+
+salary_hours=df[['hours-per-week','salary']]
+                                                                        # (salary_hours['hours-per-week'].min())]  PUEDE SER UNA FUNCION
+salary_hours_maxsalary=salary_hours[(salary_hours['salary']=='>50K')]   #tener dos condiciones de columnas y de la misma columna tambien 
+
+# df[(df["salary"] == ">50K") & (df["hours_per_week"] == df["hours_per_week"].min())]
+salary_hours_maxsalary['hours-per-week'].min()
+
+
+
+
+# What percentage of the people who work the minimum number of hours per week have a salary of >50K?
+    num_min_workers = df.loc[df["hours-per-week"] == min_work_hours]
+    rich_percentage = round(
+        100
+        * num_min_workers.loc[num_min_workers["salary"] == ">50K"].size
+        / num_min_workers.size,
+        1,)
+
+### What country has the highest percentage of people that earn >50K?
+
+ highest_country = (
+        df[["salary", "native-country"]]
+        .groupby("native-country")
+        .apply(lambda g: g.loc[g["salary"] == ">50K"].size / g.size * 100) # estamos aplicando lamda a todo lo llamada y agrupado anteriormente 
+    )
+ 
+highest_country
+
+
+##MIO
+normales=df[['salary','native-country']]
+normales.drop('salary',axis=1, inplace=True)
+
+ricos=a[a['salary']=='>50K']
+ricos.drop('salary',axis=1, inplace=True)
+
+# ricos.count()
+
+# groupby(['A']).count() 
+#una manera de hacer una especie de join
+A=ricos.groupby("native-country").size()  #agrupamos y contamos 
+B=normales.groupby("native-country").size()
+
+C=round((A/B)*100,1)
+highest_earning_country=pd.DataFrame(C).idxmax()
+C.max()
+
+###Identify the most popular occupation for those who earn >50K in India.
+
+
+ok=df[['native-country','salary','occupation']]
+FILTRADO=ok[(ok['native-country']=='India') & (ok['salary']=='>50K')]
+
+FILTRADO.groupby("occupation").size()
+                                        #LO MISMO   group by bueno cuando tenes que hacer calculos de comparacion o de dos grupos dif 
+FILTRADO['occupation'].value_counts()
+
+
+
+
+#PARA HACERLO EN SOLO UNA LINEA SI O SI PRIMERO LA CONDICION
+FILTRADO=df[(df['native-country']=='India') & (df['salary']=='>50K')][['native-country','salary','occupation']]
+
+FILTRADO['occupation'].value_counts().idxmax()  #idxmax te da el index del valore maximo
+
+https://replit.com/@RochiiRamos/boilerplate-mean-variance-standard-deviation-calculator-1#mean_var_std.py
+
+####Chequear
+
+
+
+    # What percentage of people with advanced education (`Bachelors`, `Masters`,
+    # or `Doctorate`) make more than 50K?
+    # What percentage of people without advanced education make more than 50K?
+
+    # with and without `Bachelors`, `Masters`, or `Doctorate`
+    higher_education = df.loc[
+        df["education"].isin(["Bachelors", "Masters", "Doctorate"])
+    ]
+    lower_education = df.loc[
+        ~df["education"].isin(["Bachelors", "Masters", "Doctorate"])
+    ]
+
+    # percentage with salary >50K
+    higher_education_rich = round(
+        100
+        * higher_education.loc[higher_education["salary"] == ">50K"].size
+        / higher_education.size,
+        1,
+    )
+
+    lower_education_rich = round(
+        100
+        * lower_education.loc[lower_education["salary"] == ">50K"].size
+        / lower_education.size,
+        1,
+    )
+
+#Medical Visualization
+
+
+##DATA
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df=pd.read_csv('/content/drive/MyDrive/medical_examination.csv')
+
+####Add an overweight column to the data. To determine if a person is overweight, first calculate their BMI by dividing their weight in kilograms by the square of their height in meters. If that value is > 25 then the person is overweight. Use the value 0 for NOT overweight and the value 1 for overweight.
+
+
+#comparacion numero es np.where
+df["overweight"] = np.where(
+    df["weight"] / (df["height"] ) **2 > 25,
+    1,  #si cumple=  1
+    0,  #si no 0
+)
+
+df
+
+###Normalize the data by making 0 always good and 1 always bad. If the value of cholesterol or gluc is 1, make the value 0. If the value is more than 1, make the value 1.
+
+
+#Clasificar
+
+df["cholesterol"] = np.where(
+    df["cholesterol"]==1,
+    0,  #si cumple
+    1,  #si no 0
+)
+df["gluc"] = np.where(
+    df["gluc"]==1,
+    0,  #si cumple
+    1,  #si no 0
+)
+
+df
+
+#####Convert the data into long format and create a chart that shows the value counts of the categorical features using seaborn's catplot(). The dataset should be split by 'Cardio' so there is one chart for each cardio value. The chart should look like examples/Figure_1.png.
+
+# pd.melt(df, id_vars =['Name'], value_vars =['Course'])
+
+
+# cholesterol	gluc	smoke	alco	active	cardio	overweight
+
+
+  
+
+vars =sorted(df[["cholesterol", "gluc", "smoke", "alco", "active", "overweight"]])
+
+df_cat = pd.melt(df, id_vars=["cardio"], value_vars=vars)    # ponemos en value_vars los valores que queremos que esten dentro del nuevo df, si no me toma todo el df
+df_cat
+
+#MULTINDEX
+
+https://www.w3resource.com/pandas/series/series-rename_axis.php
+
+ok=df_cat.value_counts().reset_index(name="total")
+ok1=ok.sort_values(by='variable')
+
+ok1
+
+# VISUALIZAR DATA DE CATEGORIA 
+
+vars =sorted(df[["cholesterol", "gluc", "smoke", "alco", "active", "overweight"]])
+
+df_cat = pd.melt(df, id_vars=["cardio"], value_vars=vars)    # ponemos en value_vars los valores que queremos que esten dentro del nuevo df, si no me toma todo el df
+
+ok=df_cat.value_counts().reset_index(name="total")  #MULTIINDEX, PONES NAME= NOMBRE DE LA COLUMNA QUE NO TIENE NOMBRE
+ok1=ok.sort_values(by='variable')
+
+df_cat=sns.catplot(
+    data=ok1 , x="variable", y="total",hue="value", col="cardio",
+    kind="bar", order=vars,)
+
+
+
+df_cat
+
+Clean the data. Filter out the following patient segments that represent incorrect data:
+
+diastolic pressure is higher than systolic (Keep the correct data with (df['ap_lo'] <= df['ap_hi']))
+
+
+#MASCARA DE FILTRO BOOLEANO 
+
+#correcta
+
+df2 = df[df['ap_lo'] <= df['ap_hi']] #mascara boooleana, que los clasifique si cumplen o no la condicion  borra los False, no cumplen con la 
+df3=df2.dropna()
+
+df3
+
+
+
+height is less than the 2.5th percentile (Keep the correct data with (df['height'] >= df['height'].quantile(0.025)))
+
+
+
+mascara=df[df['height']>= df['height'].quantile(0.025)]     #ya me esta cumpliendo esta condicion 
+# d4=mascara.dropna()  es lo mismo 
+mascara
+
+
+
+height is more than the 97.5th percentile
+
+
+
+weight is less than the 2.5th percentile
+Wight is more than the 97.5th percentile
+
+#todo junto
+
+df4=df.loc[(df['ap_lo'] <= df['ap_hi'])& (df['height']>= df['height'].quantile(0.025)) &(df['height']<=df['height'].quantile(0.975)) & (df['weight']>=df['weight'].quantile(0.025)) & (df['weight']<=df['weight'].quantile(0.975))]
+
+df4
+
+#porque el loc??
+
+
+####correlaciones y graficos
+
+
+corr=df4.corr()
+
+
+plt.figure(figsize=(12, 9))
+mask = np.triu(np.ones_like(df4.corr()))
+sns.heatmap(round(df4.corr(),1),vmin=0.08, vmax=0.24, annot=True, mask=mask)
+
+
+plt.subplots(figsize=(12, 9))  #crea la figura
+upp_mat = np.triu(df4.corr())   #crea la mascara  ##  numpy.triu() que devuelve el triángulo superior del array
+sns.heatmap(round(df4.corr(),1), vmin=0.08, vmax=0.24, annot = True, cmap = 'coolwarm', mask = upp_mat)  #  cmap="YlGnBu" color   annot=True etiqueta 
+
+#np.triu TRAE SOLO L APRTE DE ARRIBA 
+# np.ones_like DESTINGUE LOS VALORES,
+
+mask = np.triu(np.ones_like(df4.corr()))
+
+mask
+
+
+# Numpy .ones_like can create a matrix of booleans with the same shape as our data frame, while .triu will return only the upper triangle of that matrix.
+
+# mask = np.triu(np.ones_like(df_corr))
+
+
+
+#####ejemplos melt(
+
+##Nuevo ejercicio
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df=pd.read_csv('/content/drive/MyDrive/fcc-forum-pageviews.csv')
+df.info()  #parse() is the opposite of format()
+
+
+
+
+# df.drop(['level_0','index'],axis=1,inplace=True)
+df.info()
+
+
+df['date']=pd.to_datetime(df['date'])
+df.set_index('date',inplace=True)
+df
+
+Q1 = df["value"].quantile(0.25)
+Q3 = df["value"].quantile(0.75)
+
+# Calculate the interquartile range (IQR)
+IQR = Q3 - Q1
+
+# Define the lower and upper bounds
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Remove outliers
+df = df[(df["value"] > lower_bound) & (df["value"] < upper_bound)]
+
+df
+
+#TOMAR CUARTILES
+ rango intercuartílico (IQR)
+ medida de dispersión o variabilidad en un conjunto de datos. Se define como la diferencia entre el tercer cuartil (Q3) y el primer cuartil (Q1).
+
+Los cuartiles se utilizan para dividir los datos en cuatro partes iguales. El primer cuartil (Q1) es el valor que divide la primera mitad de los datos (menor a la mediana), mientras que el tercer cuartil (Q3) es el valor que divide la segunda mitad de los datos (mayor a la mediana).
+
+El IQR se utiliza a menudo para identificar valores atípicos o outliers en los datos
+
+El primer cuartil (Q1) es el valor que divide la primera mitad de los datos en un 25%, mientras que el tercer cuartil (Q3) es el valor que divide la segunda mitad de los datos en un 25%. Por lo tanto, los valores entre Q1 y Q3 representan el 50% de los datos más centrales
+
+En resumen, se toma la diferencia entre Q3 y Q1 para calcular el IQR porque estos dos cuartiles representan un rango de valores que incluye el 50% de los datos más centrales, y el IQR es una medida robusta de la dispersión de los datos en este rango.
+
+
+##LIMITES SUPERIORES O INFERIORES (OUTLIERS)
+
+Los límites superior e inferior del rango de datos se refieren a los valores máximo y mínimo que se consideran dentro del rango "normal" o no atípico de los datos. Estos límites se calculan utilizando el rango intercuartílico (IQR) y los cuartiles.
+
+El límite inferior se puede calcular como Q1 - 1.5 * IQR, y el límite superior se puede calcular como Q3 + 1.5 * IQR. Cualquier valor por debajo del límite inferior o por encima del límite superior se considera un valor atípico o outlier.
+
+
+```
+Q1 = df["value"].quantile(0.25)
+Q3 = df["value"].quantile(0.75)
+
+# Calculate the interquartile range (IQR)
+IQR = Q3 - Q1
+
+# Define the lower and upper bounds
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Remove outliers
+df = df[(df["value"] > lower_bound) & (df["value"] < upper_bound)]
+```
+###multiplicador 
+El multiplicador que se utiliza y el porcentaje que se suele limpiar de los top y bottom depende de la aplicación y el objetivo específico. Por lo general, se utiliza un factor de 1.5 para calcular el rango intercuartílico y descartar los outliers que están en el top y bottom del 2.5%. Sin embargo, puede ser necesario descartar un porcentaje diferente en función de los datos y la situación. En algunos casos, se pueden descartar hasta el 5% o incluso más dependiendo de la cantidad y la distribución de los datos.
+
+
+##distribucion de los datos
+
+Puedes usar diferentes herramientas y técnicas para entender la distribución de tus datos. Algunas de las formas más comunes de hacerlo incluyen:
+
+Gráficos de histograma: Un histograma es un gráfico que muestra la frecuencia de los valores de los datos en diferentes intervalos. Puedes usar un histograma para ver si tus datos tienen una distribución uniforme, normal, sesgada, entre otras.
+
+Gráficos de densidad: Un gráfico de densidad es una representación gráfica de la distribución de los datos. Es similar a un histograma, pero suaviza los bordes de los intervalos para proporcionar una representación más suave de la distribución.
+
+Estadísticos descriptivos: Puedes calcular estadísticos descriptivos como la media, la mediana, la moda y la desviación estándar para tener una idea de cómo se distribuyen tus datos.
+
+Pruebas de normalidad: Puedes usar pruebas estadísticas para determinar si tus datos siguen una distribución normal o no.
+
+Gráficos de boxplot: Un gráfico de boxplot es un gráfico que muestra la distribución de los datos y sus outliers. Es útil para identificar valores atípicos y para comprender la forma en que se distribuyen los datos.
+
+
+#distribucion atipica 
+Hay varias formas de compensar una distribución atípica. Algunas técnicas incluyen:
+
+Transformaciones: Transformar los datos utilizando funciones matemáticas para normalizar la distribución. Por ejemplo, se puede utilizar la función logarítmica para reducir la presencia de valores extremos en los datos.
+
+Regresión: Utilizar técnicas de regresión para modelar y eliminar la influencia de los valores atípicos en los resultados.
+
+Agrupación: Agrupar los datos en conjuntos más pequeños y trabajar con estos conjuntos para reducir la influencia de los valores atípicos.
+
+######Create a draw_line_plot function that uses Matplotlib to draw a line chart similar to "examples/Figure_1.png". The title should be Daily freeCodeCamp Forum Page Views 5/2016-12/2019. The label on the x axis should be Date and the label on the y axis should be Page Views.
+
+fig, ax = plt.subplots(figsize=(20, 5))
+
+ax = sns.lineplot(data=df, x="date", y="value")
+
+ax.set_title("Daily freeCodeCamp Forum Page Views 5/2016-12/2019")
+
+ax.set_xlabel('Date')  #el titulo del eje x
+
+ax.set_ylabel('Page Views')
+
+
+
+# subplots
+nnos permite tener diferentes conjuntos d ejes 
+
+######Create a draw_bar_plot function that draws a bar chart similar to "examples/Figure_2.png". It should show average daily page views for each month grouped by year. The legend should show month labels and have a title of Months. On the chart, the label on the x axis should be Years and the label on the y axis should be Average Page Views.
+
+df['year']=df.index.year   #para hacer esto si o si la fecha como indice
+df['month']=df.index.month
+
+mes=df.groupby('month').mean('values')
+
+año=df.groupby('year').mean('values')
+año
+
+a=pd.DatetimeIndex
+
+
+#####ejemplos
+
+# Asegurarse de parsear las fechas significa tomar las fechas en formato de texto y convertirlas en objetos de fecha para poder trabajar con ellas de manera más eficiente y efectiva.
+#UNA FORMA DE PARSEAR FECHAS DE STRING A FORMATO FECHA
+from dateutil import parser
+date_string = "2020-01-01"
+date_object = parser.parse(date_string)
+print(date_object)
+# Output: 2020-01-01 00:00:00
+
+#con pandas EJEMPLO
+import pandas as pd
+date_strings = ["2020-01-01", "2020-02-01", "2020-03-01"]
+dates = pd.to_datetime(date_strings)
+print(dates)
+
+#EJEMPLO FORMAT 
+#FORMAT
+nombre="Gibrán"
+curso = "Python"
+presentacion = "Hola, me llamo {}, estoy en curso de {}".format(nombre,curso)
+
+df.reset_index()
+date_strings = ["2020-01-01", "2020-02-01", "2020-03-01"]
+dates = pd.to_datetime(date_strings)
+print(dates)
